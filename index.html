@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff8f4">
+  <meta name="description" content="Μια ξεχωριστή ευχή για τα Sweet Sixteen της Κωνσταντίνας!">
+  <title>Χρόνια Πολλά, Κωνσταντίνα!</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #332b3a;
+      --muted: #766b7d;
+      --pink: #f5a9bd;
+      --pink-dark: #df7898;
+      --lilac: #c9b8ed;
+      --cream: #fff8f4;
+      --yellow: #f8d77e;
+      --green: #b6d6c1;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse at 8% 18%, #f9dbe3 0, transparent 26rem),
+        radial-gradient(ellipse at 93% 80%, #e6dcfa 0, transparent 30rem),
+        var(--cream);
+      font-family: "Trebuchet MS", "Avenir Next", sans-serif;
+    }
+
+    body::before {
+      position: fixed;
+      z-index: -1;
+      inset: 0;
+      background-image: radial-gradient(#8d71811c 0.65px, transparent 0.65px);
+      background-size: 7px 7px;
+      content: "";
+      pointer-events: none;
+    }
+
+    .page {
+      display: grid;
+      min-height: 100vh;
+      place-items: center;
+      padding: 48px 20px;
+    }
+
+    .birthday-card {
+      position: relative;
+      width: min(100%, 760px);
+      overflow: hidden;
+      border: 1px solid #fff;
+      border-radius: 32px;
+      background: #fffcf8eF;
+      box-shadow: 0 24px 80px #63475a20, 0 4px 12px #63475a0d;
+      text-align: center;
+    }
+
+    .top-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 40px;
+      padding: 9px 15px;
+      border: 1px solid #f1dbe2;
+      border-radius: 99px;
+      color: #825d71;
+      background: #fff8fa;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .top-note span {
+      color: var(--pink-dark);
+    }
+
+    h1 {
+      margin: 23px 20px 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.2rem, 10vw, 6rem);
+      font-weight: 500;
+      letter-spacing: -0.07em;
+      line-height: 0.9;
+    }
+
+    h1 .first-line {
+      display: block;
+      color: var(--ink);
+      font-size: 0.55em;
+      font-style: italic;
+      letter-spacing: -0.035em;
+      line-height: 1.25;
+    }
+
+    h1 .sixteen {
+      color: var(--pink-dark);
+    }
+
+    .subtitle {
+      margin: 20px 24px 0;
+      color: var(--muted);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.05rem, 3vw, 1.28rem);
+      font-style: italic;
+    }
+
+    .illustration {
+      position: relative;
+      display: grid;
+      min-height: 240px;
+      margin: 18px 22px 0;
+      place-items: center;
+      isolation: isolate;
+    }
+
+    .sunburst {
+      position: absolute;
+      z-index: -1;
+      width: 218px;
+      aspect-ratio: 1;
+      border: 1px solid #eddcd9;
+      border-radius: 50%;
+      background: repeating-conic-gradient(from 6deg, #f8e7df 0deg 8deg, #fbf3eb 8deg 16deg);
+      mask-image: radial-gradient(circle, #000 0 58%, transparent 59%);
+      opacity: 0.8;
+    }
+
+    .cake {
+      position: relative;
+      width: 170px;
+      height: 145px;
+      margin-top: 42px;
+      filter: drop-shadow(0 10px 8px #72505b20);
+    }
+
+    .candle {
+      position: absolute;
+      z-index: 3;
+      top: -32px;
+      left: 80px;
+      width: 10px;
+      height: 40px;
+      border-radius: 5px;
+      background: repeating-linear-gradient(135deg, #fff8f4 0 5px, #df7898 5px 9px);
+    }
+
+    .flame {
+      position: absolute;
+      top: -19px;
+      left: 1px;
+      width: 9px;
+      height: 14px;
+      border-radius: 50% 50% 45% 45%;
+      background: var(--yellow);
+      box-shadow: 0 0 18px #f8d77e99;
+      transform: rotate(4deg);
+      animation: flicker 1.5s ease-in-out infinite alternate;
+    }
+
+    .cake-top {
+      position: absolute;
+      top: 8px;
+      left: 10px;
+      width: 150px;
+      height: 37px;
+      border: 3px solid #fff9f3;
+      border-radius: 50%;
+      background: #f3bdd0;
+    }
+
+    .cake-top::after {
+      position: absolute;
+      top: 6px;
+      left: 12px;
+      width: 122px;
+      height: 19px;
+      border-radius: 50%;
+      background: #fff3e8;
+      content: "";
+    }
+
+    .cake-side {
+      position: absolute;
+      top: 24px;
+      left: 14px;
+      width: 142px;
+      height: 84px;
+      border-radius: 4px 4px 22px 22px;
+      background: linear-gradient(90deg, #e993ae, #f0abc0 50%, #e994af);
+    }
+
+    .drip {
+      position: absolute;
+      z-index: 1;
+      top: 27px;
+      left: 23px;
+      width: 124px;
+      height: 27px;
+      border-radius: 0 0 18px 18px;
+      background: #fff3e8;
+    }
+
+    .drip::before,
+    .drip::after {
+      position: absolute;
+      top: 8px;
+      width: 12px;
+      height: 17px;
+      border-radius: 0 0 10px 10px;
+      background: #fff3e8;
+      content: "";
+    }
+
+    .drip::before {
+      left: 30px;
+    }
+
+    .drip::after {
+      right: 24px;
+      height: 12px;
+    }
+
+    .cake-plate {
+      position: absolute;
+      bottom: 13px;
+      left: 0;
+      width: 170px;
+      height: 19px;
+      border: 3px solid #fff;
+      border-radius: 50%;
+      background: #c9b8ed;
+    }
+
+    .berry {
+      position: absolute;
+      z-index: 2;
+      top: 14px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #df7898;
+    }
+
+    .berry.one { left: 39px; }
+    .berry.two { left: 78px; top: 8px; }
+    .berry.three { right: 38px; }
+
+    .floaty {
+      position: absolute;
+      display: grid;
+      width: 52px;
+      height: 68px;
+      place-items: center;
+      border-radius: 50% 50% 46% 46%;
+      box-shadow: inset -7px -5px 0 #0000000c, 0 8px 18px #795f6514;
+      font-size: 1.4rem;
+      animation: bob 3.2s ease-in-out infinite;
+    }
+
+    .floaty::after {
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      width: 1px;
+      height: 31px;
+      background: #897a8370;
+      content: "";
+    }
+
+    .balloon-left {
+      top: 37px;
+      left: 17%;
+      color: #fff;
+      background: var(--lilac);
+      transform: rotate(-12deg);
+    }
+
+    .balloon-right {
+      top: 23px;
+      right: 17%;
+      color: #986076;
+      background: #f7cad5;
+      animation-delay: -1.5s;
+      transform: rotate(11deg);
+    }
+
+    .sparkle {
+      position: absolute;
+      color: #c2a756;
+      font-size: 1.5rem;
+      animation: twinkle 2s ease-in-out infinite alternate;
+    }
+
+    .sparkle.left { top: 36px; left: 30%; }
+    .sparkle.right { right: 29%; bottom: 42px; animation-delay: -1s; }
+
+    .memories {
+      display: grid;
+      width: min(100% - 44px, 560px);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin: 0 auto 30px;
+      padding: 10px 8px;
+    }
+
+    .memory-photo {
+      margin: 0;
+      padding: 9px 9px 12px;
+      border: 1px solid #fff;
+      border-radius: 8px;
+      background: #fffaf7;
+      box-shadow: 0 8px 24px #63475a1c;
+    }
+
+    .memory-photo:first-child {
+      transform: rotate(-4deg) translateY(5px);
+    }
+
+    .memory-photo:last-child {
+      transform: rotate(4deg) translateY(-2px);
+    }
+
+    .memory-photo img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border-radius: 4px;
+      object-fit: cover;
+    }
+
+    .memory-photo figcaption {
+      padding-top: 9px;
+      color: #887b8d;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(0.7rem, 2.4vw, 0.85rem);
+      font-style: italic;
+    }
+
+    .message {
+      width: min(100% - 44px, 510px);
+      margin: 6px auto 0;
+      color: #615765;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .message strong {
+      color: #b75f7c;
+    }
+
+    .magic-button {
+      display: inline-flex;
+      min-height: 52px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 25px 0 0;
+      padding: 0 24px;
+      border: 0;
+      border-radius: 99px;
+      color: #fff;
+      background: var(--ink);
+      box-shadow: 0 7px 18px #332b3a2a;
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .magic-button:hover {
+      background: #51425c;
+      box-shadow: 0 10px 24px #332b3a35;
+      transform: translateY(-2px);
+    }
+
+    .magic-button:focus-visible {
+      outline: 3px solid var(--pink-dark);
+      outline-offset: 4px;
+    }
+
+    .signoff {
+      margin: 26px 0 38px;
+      color: #887b8d;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 0.95rem;
+      font-style: italic;
+    }
+
+    .signoff span {
+      color: var(--pink-dark);
+    }
+
+    .confetti {
+      position: fixed;
+      z-index: 5;
+      top: -18px;
+      width: 10px;
+      height: 14px;
+      border-radius: 3px;
+      pointer-events: none;
+      animation: fall var(--fall-time, 2.8s) linear forwards;
+    }
+
+    .toast {
+      position: fixed;
+      z-index: 6;
+      right: 20px;
+      bottom: 20px;
+      left: 20px;
+      width: fit-content;
+      max-width: calc(100% - 40px);
+      margin: auto;
+      padding: 13px 20px;
+      border: 1px solid #ffffff80;
+      border-radius: 99px;
+      color: #fff;
+      background: #332b3a;
+      box-shadow: 0 8px 25px #332b3a30;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity 200ms ease, transform 200ms ease;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes flicker {
+      from { transform: rotate(-5deg) scale(0.94); }
+      to { transform: rotate(5deg) scale(1.06); }
+    }
+
+    @keyframes bob {
+      0%, 100% { translate: 0 0; }
+      50% { translate: 0 -9px; }
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.45; scale: 0.85; }
+      to { opacity: 1; scale: 1.15; }
+    }
+
+    @keyframes fall {
+      to {
+        opacity: 0;
+        transform: translate3d(var(--drift), 110vh, 0) rotate(760deg);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .page { padding: 24px 14px; }
+      .birthday-card { border-radius: 25px; }
+      .top-note { margin-top: 30px; font-size: 0.65rem; }
+      .illustration { min-height: 215px; margin-right: 8px; margin-left: 8px; }
+      .balloon-left { left: 8%; }
+      .balloon-right { right: 8%; }
+      .sparkle.left { left: 24%; }
+      .sparkle.right { right: 22%; }
+      .message { font-size: 0.94rem; }
+      .signoff { margin-bottom: 30px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <article class="birthday-card" aria-labelledby="birthday-title">
+      <div class="top-note"><span aria-hidden="true">✦</span> Μια αγκαλιά αγάπης για σένα <span aria-hidden="true">✦</span></div>
+      <h1 id="birthday-title">
+        <span class="first-line">Happy Birthday!</span>
+        <span class="sixteen">Sweet Sixteen</span>
+      </h1>
+
+      <div class="illustration" aria-hidden="true">
+        <div class="sunburst"></div>
+        <span class="floaty balloon-left">♡</span>
+        <span class="floaty balloon-right">✦</span>
+        <span class="sparkle left">✧</span>
+        <span class="sparkle right">✧</span>
+        <div class="cake">
+          <div class="candle"><span class="flame"></span></div>
+          <div class="cake-top"><i class="berry one"></i><i class="berry two"></i><i class="berry three"></i></div>
+          <div class="cake-side"></div>
+          <div class="drip"></div>
+          <div class="cake-plate"></div>
+        </div>
+      </div>
+
+      <section class="memories" aria-label="Οι αγαπημένες μας φωτογραφίες">
+        <figure class="memory-photo">
+          <img src="photos/IMG_4720.jpg" alt="Η Μαρία και η Κωνσταντίνα μαζί στην παραλία">
+          <figcaption>forever...</figcaption>
+        </figure>
+        <figure class="memory-photo">
+          <img src="photos/IMG_4763.jpeg" alt="Η Μαρία και η Κωνσταντίνα χαμογελούν μαζί το βράδυ">
+          <figcaption>...and always ♥</figcaption>
+        </figure>
+      </section>
+
+      <p class="message">
+        Χρόνια πολλά, Κωνσταντίνα μου! Σε αγαπάω όσο τίποτα άλλο!
+        <strong>Θα είμαι δίπλα σου σε ό,τι κι αν χρειαστείς</strong>,
+        <i>όπως είσαι κι εσύ για μένα</i>. Είμαι η πιο τυχερή που σε έχω στη ζωή μου.
+      </p>
+      <button class="magic-button" id="magic-button" type="button">
+        <span aria-hidden="true">✨</span> Πάτα για λίγη μαγεία γενεθλίων
+      </button>
+      <p class="signoff">Σ' αγαπώ άπειρα, Μαρία <span aria-hidden="true">♥</span></p>
+    </article>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const button = document.querySelector("#magic-button");
+    const toast = document.querySelector("#toast");
+    const colors = ["#f5a9bd", "#c9b8ed", "#f8d77e", "#b6d6c1", "#ffffff"];
+    let toastTimer;
+
+    button.addEventListener("click", () => {
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      toast.textContent = "Ο κόσμος μου είναι πιο όμορφος που είσαι μέσα του!";
+      toast.classList.add("show");
+      window.clearTimeout(toastTimer);
+      toastTimer = window.setTimeout(() => toast.classList.remove("show"), 3200);
+
+      if (reducedMotion) return;
+
+      for (let i = 0; i < 75; i += 1) {
+        const piece = document.createElement("span");
+        piece.className = "confetti";
+        piece.setAttribute("aria-hidden", "true");
+        piece.style.left = `${Math.random() * 100}vw`;
+        piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.setProperty("--drift", `${(Math.random() - 0.5) * 220}px`);
+        piece.style.setProperty("--fall-time", `${2 + Math.random() * 2}s`);
+        piece.style.animationDelay = `${Math.random() * 0.45}s`;
+        document.body.append(piece);
+        piece.addEventListener("animationend", () => piece.remove(), { once: true });
+      }
+    });
+  </script>
+</body>
+</html>
